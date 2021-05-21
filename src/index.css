@@ -4,7 +4,5 @@
 @tailwind utilities;
 
 body {
-  display: inline-block;
-  height: 900px;
-  width: 600px;
+  background-color: transparent;
 }
