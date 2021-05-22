@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { Chatbot, ChatHorizontal, ChatVertical } from './pages'
+import { Chatbot, ChatHorizontal, ChatVertical, Landing } from './pages'
 
 const Routes = ({ messageState }) => {
   return (
@@ -13,6 +13,9 @@ const Routes = ({ messageState }) => {
       </Route>
       <Route exact path='/bots/chat'>
         <Chatbot />
+      </Route>
+      <Route path='/'>
+        <Landing />
       </Route>
     </Switch>
   )

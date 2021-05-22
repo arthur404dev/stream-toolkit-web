@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <Routes messageState={{ messages, scroll }} />
-      {/* <Link to={`/overlay/chat-vertical`}>Chat-Vertical</Link> */}
     </Router>
   )
 }
