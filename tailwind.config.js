@@ -3,12 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors:{
-        'grey-404':'#252525',
-        'youtube':'#FF0000',
-        'discord':'#7289DA' 
-      }
-    }
+      colors: {
+        'grey-404': '#252525',
+        youtube: '#FF0000',
+        discord: '#7289DA',
+      },
+    },
   },
   variants: {
     extend: {},

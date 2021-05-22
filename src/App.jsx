@@ -1,13 +1,11 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
-import useMessages from './hooks/useMessages'
-import Routes from './Routes'
+import Routes from './routes/Routes'
 
 function App() {
-  const [messages, scroll] = useMessages()
   return (
     <Router>
-      <Routes messageState={[messages, scroll]} />
+      <Routes />
       {/* <Link to={`/overlay/chat-vertical`}>Chat-Vertical</Link> */}
     </Router>
   )

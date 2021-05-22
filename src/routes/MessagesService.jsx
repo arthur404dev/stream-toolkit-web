@@ -1,10 +1,13 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import { Chatbot, ChatHorizontal, ChatVertical } from './pages'
+import { Route } from 'react-router-dom'
+import useMessages from '../hooks/useMessages'
+import { Chatbot, ChatHorizontal, ChatVertical } from '../pages'
 
-const Routes = ({ messageState }) => {
+const MessageRoutes = () => {
+  const [messages, scroll] = useMessages()
+  const messageState = { messages, scroll }
   return (
-    <Switch>
+    <>
       <Route exact path='/overlay/chat-vertical'>
         <ChatVertical state={messageState} />
       </Route>
@@ -14,8 +17,8 @@ const Routes = ({ messageState }) => {
       <Route exact path='/bots/chat'>
         <Chatbot />
       </Route>
-    </Switch>
+    </>
   )
 }
 
-export default Routes
+export default MessageRoutes
