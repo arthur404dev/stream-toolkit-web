@@ -3,7 +3,13 @@ import { socket, sourceIds } from '../api/websocket'
 
 const useMessages = () => {
   const [messages, setMessages] = useState([])
-  const scroll = useRef()
+  const [shouldScroll, setScroll] = useState(false)
+  const scrollElement = useRef()
+  const scroll = {
+    scrollElement,
+    setScroll,
+    shouldScroll,
+  }
 
   useEffect(() => {
     socket.onmessage = ({ data }) => {
@@ -21,7 +27,7 @@ const useMessages = () => {
           timestamp,
         }
         setMessages((messages) => [...messages, message])
-        scroll.current.scrollIntoView({ behavior: 'smooth' })
+        setScroll(true)
       }
     }
   }, [])
