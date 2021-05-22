@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import Icons from './Icons'
@@ -7,8 +8,17 @@ const Message = ({ payload }) => {
   const { author, text, platform, timestamp } = payload
   const parsedDate = new Date(timestamp * 1000)
   const name = author.displayName ? author.displayName : author.name
+  const [animate, setAnimation] = useState('')
+  useEffect(() => {
+    setAnimation('animate-pulse')
+    setTimeout(() => {
+      setAnimation('')
+    }, 2000)
+  }, [])
   return (
-    <div className={`max-w-full bg-grey-404 border-${platform} border-l-4`}>
+    <div
+      className={`max-w-full bg-grey-404 border-${platform} border-l-4 transition-all ${animate}`}
+    >
       <div className='content max-w-full mx-auto my-4 flex p-6'>
         <div className='flex-shrink-0'>
           <img

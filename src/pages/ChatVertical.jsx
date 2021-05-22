@@ -10,7 +10,7 @@ const Messages = ({ state }) => {
       scrollElement.current.scrollIntoView({ behavior: 'smooth' })
       setScroll(false)
     }
-  }, [shouldScroll])
+  }, [scrollElement, setScroll, shouldScroll])
   return (
     <div className='page'>
       <main className='bg-transparent w-full h-full flex-col'>
