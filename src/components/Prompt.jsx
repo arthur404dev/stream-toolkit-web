@@ -4,7 +4,7 @@ const Prompt = ({ payload }) => {
   const { author, text, platform } = payload
   const name = author.displayName ? author.displayName : author.name
   return (
-    <div className='flex text-2xl h-full'>
+    <div className='flex text-2xl h-full pr-4'>
       <div
         className={`h-8 w-8 mr-2 ml-2 rounded-full border-${platform} border-2`}
       >
