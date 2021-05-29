@@ -2,7 +2,7 @@ module.exports = {
   purge: {
     content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     options: {
-      safelist: [/discord/, /youtube/],
+      safelist: [/discord/, /youtube/, /twitch/, /linkedin/],
     },
   },
   darkMode: false, // or 'media' or 'class'
@@ -12,6 +12,8 @@ module.exports = {
         'grey-404': '#252525',
         youtube: '#FF0000',
         discord: '#7289DA',
+        twitch: '#6441A4',
+        linkedin: '#0077B5',
       },
     },
   },

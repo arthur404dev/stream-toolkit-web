@@ -36,7 +36,7 @@ const Message = ({ payload }) => {
               <span className='text-gray-300 mb-2'>
                 {format(parsedDate, 'pp', { locale: ptBR })}
               </span>
-              <Icons platform={platform} />
+              <Icons platform={platform} iconSize='text-2xl' />
             </div>
           </div>
           <span className='text-gray-200 text-3xl mt-3 text-justify w-full messageText'>

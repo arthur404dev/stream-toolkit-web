@@ -12,7 +12,7 @@ const Messages = ({ state }) => {
     }
   }, [scrollElement, setScroll, shouldScroll])
   return (
-    <div className='page'>
+    <div id='vertical-chat'>
       <main className='bg-transparent w-full h-full flex-col'>
         {messages.map((message) => (
           <Message key={message.id} payload={message} />

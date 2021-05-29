@@ -5,11 +5,11 @@ import React from 'react'
 
 library.add(fab)
 
-const Icons = ({ platform }) => {
+const Icons = ({ platform, iconSize }) => {
   return (
     <FontAwesomeIcon
       icon={['fab', platform]}
-      className={`text-${platform} text-2xl`}
+      className={`text-${platform} ${iconSize}`}
     />
   )
 }
