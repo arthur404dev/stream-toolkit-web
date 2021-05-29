@@ -4,15 +4,16 @@ const Prompt = ({ payload }) => {
   const { author, text, platform } = payload
   const name = author.displayName ? author.displayName : author.name
   return (
-    <div className='flex flex-col w-auto whitespace-nowrap text-2xl pl-4 h-full'>
-      <div id='top-row' className='flex items-center h-8'>
-        <img
-          className={`h-8 w-8 rounded-full border-${platform} border-2`}
-          src={author.avatar}
-          alt={name}
-        />
-        <span className={`pl-1 font-bold text-${platform}`}>{name}:</span>
-        <span className='text-white pl-2'>{text}</span>
+    <div className='flex text-2xl h-full'>
+      <div
+        className={`h-8 w-8 mr-2 ml-2 rounded-full border-${platform} border-2`}
+      >
+        <img className='rounded-full' src={author.avatar} alt={name} />
+      </div>
+
+      <div className='whitespace-nowrap flex'>
+        <span className={`font-bold text-${platform}`}>{name}:</span>
+        <p className='text-white pl-2'>{text}</p>
       </div>
     </div>
   )
