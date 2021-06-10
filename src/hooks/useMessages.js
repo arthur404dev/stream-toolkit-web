@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { socket, sourceIds } from '../api/websocket'
+import { socketFactory, sourceIds } from '../api/websocket'
 
 const useMessages = () => {
   const [messages, setMessages] = useState([])
@@ -12,6 +12,7 @@ const useMessages = () => {
   }
 
   useEffect(() => {
+    const socket = socketFactory('chat')
     socket.onmessage = ({ data }) => {
       const { action, payload, timestamp } = JSON.parse(data)
 

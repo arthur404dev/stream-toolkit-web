@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import Message from '../components/Message'
-import './ChatVertical.css'
 
 const Messages = ({ state }) => {
   const { messages, scroll } = state
@@ -12,7 +11,7 @@ const Messages = ({ state }) => {
     }
   }, [scrollElement, setScroll, shouldScroll])
   return (
-    <div id='vertical-chat'>
+    <div className='w-chat-vertical h-chat-vertical block'>
       <main className='bg-transparent w-full h-full flex-col'>
         {messages.map((message) => (
           <Message key={message.id} payload={message} />

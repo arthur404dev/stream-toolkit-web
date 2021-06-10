@@ -1,10 +1,9 @@
 import React from 'react'
 import Icons from '../components/Icons'
-import './Landing.css'
 
 const Landing = () => {
   return (
-    <div className='landing'>
+    <div className='w-screen h-screen'>
       <main className='bg-gray-800 text-white w-full h-full flex'>
         <div className='m-auto p-auto self-center'>
           <h1 className='font-mono text-9xl font-bold text-center'>404</h1>

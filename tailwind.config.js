@@ -15,6 +15,14 @@ module.exports = {
         twitch: '#6441A4',
         linkedin: '#0077B5',
       },
+      width: {
+        'chat-vertical': '820px',
+        'chat-horizontal': '2560px',
+      },
+      height: {
+        'chat-vertical': '960px',
+        'chat-horizontal': '80px',
+      },
     },
   },
   variants: {

@@ -1,6 +1,13 @@
-const urlChat = `wss://backend.chat.restream.io/ws/embed?token=${process.env.REACT_APP_RESTREAM_TOKEN}`
+const socketFactory = (type) => {
+  const socketToken = process.env.REACT_APP_RESTREAM_TOKEN
+  const socketUrl = sourceUrls[type] + socketToken
+  return new WebSocket(socketUrl)
+}
 
-const socket = new WebSocket(urlChat)
+const sourceUrls = {
+  chat: `wss://backend.chat.restream.io/ws/embed?token=`,
+  stream: `wss://backend.streaming.api.restream.io/ws?accessToken=`,
+}
 
 const sourceIds = {
   2: 'twitch',
@@ -9,4 +16,4 @@ const sourceIds = {
   26: 'linkedin',
 }
 
-export { socket, sourceIds }
+export { socketFactory, sourceIds }

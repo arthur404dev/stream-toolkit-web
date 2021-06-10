@@ -1,11 +1,11 @@
 import { BrowserRouter as Router } from 'react-router-dom'
-import './App.css'
 import Routes from './Routes'
 
-import useMessages from './hooks/useMessages'
+import { useMessages, useStreamData } from './hooks'
 
 function App() {
   const [messages, scroll] = useMessages()
+  const [streamData] = useStreamData()
   return (
     <Router>
       <Routes messageState={{ messages, scroll }} />
