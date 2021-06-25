@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 const Message = ({ payload }) => {
   const { author, text, platform, timestamp } = payload
   const parsedDate = new Date(timestamp * 1000)
-  const name = author.displayName ? author.displayName : author.name
   return (
     <motion.div
       layout q
@@ -18,13 +17,13 @@ const Message = ({ payload }) => {
           <img
             className='h-16 w-16 rounded-full'
             src={author.avatar}
-            alt={name}
+            alt={author.name}
           />
         </div>
         <div className='ml-6 pt-1 flex-col w-full'>
           <div className='flex justify-between'>
             <h4 className='text-3xl text-white font-bold overflow-hidden'>
-              {name}
+              {author.name}
             </h4>
             <div className='flex flex-col justify-end items-end'>
               <span className='text-gray-300 mb-2 text-xl'>

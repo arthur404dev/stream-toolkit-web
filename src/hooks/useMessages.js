@@ -14,14 +14,17 @@ const useMessages = () => {
   useEffect(() => {
     const socket = socketFactory('chat')
     socket.onmessage = ({ data }) => {
+      console.log(data)
       const { action, payload, timestamp } = JSON.parse(data)
 
       if (action === 'event') {
         const { eventIdentifier, eventPayload, eventSourceId } = payload
         const { author, bot, text } = eventPayload
+        const name = author.displayName ? author.displayName : author.name
+        const avatar = author.avatar ? author.avatar : author.avatarUrl
         const message = {
           id: eventIdentifier,
-          author,
+          author: { name, avatar },
           text,
           bot,
           platform: sourceIds[eventSourceId],
