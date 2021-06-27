@@ -4,13 +4,19 @@ import Icons from './Icons'
 import './Message.css'
 import { motion } from 'framer-motion'
 
-const Message = ({ payload }) => {
-  const { author, text, platform, timestamp } = payload
+const Message = ({ payload, interactive, onClick }) => {
+  const { id, author, text, platform, timestamp, clicked } = payload
   const parsedDate = new Date(timestamp * 1000)
   return (
     <motion.div
-      layout q
-      className={`max-w-full bg-grey-404 border-${platform} border-l-8 transition-all`}
+      layout
+      className={`max-w-full ${
+        clicked ? `bg-gray-700` : `bg-grey-404`
+      } border-${platform} border-l-8 transition-all ${
+        interactive && `hover:bg-gray-700`
+      } 
+      `}
+      onClick={interactive ? () => onClick(id) : () => {}}
     >
       <div className='content max-w-full mx-auto my-2 flex p-6'>
         <div className='flex-shrink-0'>

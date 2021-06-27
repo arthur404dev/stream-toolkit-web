@@ -14,7 +14,6 @@ const useMessages = () => {
   useEffect(() => {
     const socket = socketFactory('chat')
     socket.onmessage = ({ data }) => {
-      console.log(data)
       const { action, payload, timestamp } = JSON.parse(data)
 
       if (action === 'event') {
@@ -36,7 +35,7 @@ const useMessages = () => {
     }
   }, [])
 
-  return [messages, scroll]
+  return [messages, scroll, setMessages]
 }
 
 export default useMessages

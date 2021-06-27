@@ -4,11 +4,11 @@ import Routes from './Routes'
 import { useMessages, useStreamData } from './hooks'
 
 function App() {
-  const [messages, scroll] = useMessages()
+  const [messages, scroll, setMessages] = useMessages()
   const [streamData] = useStreamData()
   return (
     <Router>
-      <Routes messageState={{ messages, scroll }} />
+      <Routes messageState={{ messages, scroll, setMessages }} />
     </Router>
   )
 }

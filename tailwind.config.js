@@ -2,7 +2,7 @@ module.exports = {
   purge: {
     content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     options: {
-      safelist: [/discord/, /youtube/, /twitch/, /linkedin/],
+      safelist: [/discord/, /youtube/, /twitch/, /linkedin/, /grey-404/],
     },
   },
   darkMode: false, // or 'media' or 'class'
@@ -18,6 +18,7 @@ module.exports = {
       width: {
         'chat-vertical': '820px',
         'chat-horizontal': '2560px',
+        'chat-manager': '99%',
       },
       height: {
         'chat-vertical': '960px',
