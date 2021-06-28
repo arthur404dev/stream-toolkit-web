@@ -1,7 +1,6 @@
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import Icons from './Icons'
-import './Message.css'
 import { motion } from 'framer-motion'
 
 const Message = ({ payload, interactive, onClick }) => {
@@ -38,7 +37,14 @@ const Message = ({ payload, interactive, onClick }) => {
               <Icons platform={platform} iconSize='text-3xl' />
             </div>
           </div>
-          <span className='text-gray-200 text-4xl mt-3 text-justify w-full messageText'>
+          <span
+            className='text-gray-200 text-4xl mt-3 text-justify w-full'
+            style={{
+              overflow: 'hidden',
+              wordWrap: 'break-word',
+              wordBreak: 'break-word',
+            }}
+          >
             {text}
           </span>
         </div>

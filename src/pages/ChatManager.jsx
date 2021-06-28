@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import Message from '../components/Message'
+import { useMessages } from '../hooks'
 
-const Messages = ({ state }) => {
-  const { messages, scroll, setMessages } = state
+const Messages = () => {
+  const [messages, scroll, setMessages] = useMessages()
   const { shouldScroll, scrollElement, setScroll } = scroll
 
   const handleCLick = (id) => {
@@ -23,6 +24,7 @@ const Messages = ({ state }) => {
       setScroll(false)
     }
   }, [scrollElement, setScroll, shouldScroll])
+
   return (
     <div className='m-auto w-chat-manager h-full block'>
       <main className='bg-transparent w-full h-full flex-col'>

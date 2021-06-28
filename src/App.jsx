@@ -1,14 +1,20 @@
-import { BrowserRouter as Router } from 'react-router-dom'
-import Routes from './Routes'
-
-import { useMessages, useStreamData } from './hooks'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import AppRoute from './components/AppRoute'
+import routes from './config/routes'
 
 function App() {
-  const [messages, scroll, setMessages] = useMessages()
-  const [streamData] = useStreamData()
   return (
     <Router>
-      <Routes messageState={{ messages, scroll, setMessages }} />
+      <Switch>
+        {routes.map((route) => (
+          <AppRoute
+            key={route.path}
+            path={route.path}
+            component={route.component}
+            isProtected={route.isProtected}
+          />
+        ))}
+      </Switch>
     </Router>
   )
 }
