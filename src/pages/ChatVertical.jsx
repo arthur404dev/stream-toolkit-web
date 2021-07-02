@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
-import Message from '../components/Message'
+import React, { useEffect } from "react"
+import Message from "../components/Message"
+import { useMessages } from "../hooks"
 
-const Messages = ({ state }) => {
-  const { messages, scroll } = state
+const Messages = () => {
+  const [messages, scroll] = useMessages()
   const { shouldScroll, scrollElement, setScroll } = scroll
   useEffect(() => {
     if (shouldScroll) {
-      scrollElement.current.scrollIntoView({ behavior: 'smooth' })
+      scrollElement.current.scrollIntoView({ behavior: "smooth" })
       setScroll(false)
     }
   }, [scrollElement, setScroll, shouldScroll])

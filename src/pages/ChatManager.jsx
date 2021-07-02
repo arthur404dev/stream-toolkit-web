@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
-import Message from '../components/Message'
+import React, { useEffect } from "react"
+import Message from "../components/Message"
+import { useMessages } from "../hooks"
 
-const Messages = ({ state }) => {
-  const { messages, scroll, setMessages } = state
+const Messages = () => {
+  const [messages, scroll, setMessages] = useMessages
   const { shouldScroll, scrollElement, setScroll } = scroll
 
   const handleCLick = (id) => {
@@ -13,13 +14,13 @@ const Messages = ({ state }) => {
           msg.clicked = true
         }
         return msg
-      })
+      }),
     )
   }
 
   useEffect(() => {
     if (shouldScroll) {
-      scrollElement.current.scrollIntoView({ behavior: 'smooth' })
+      scrollElement.current.scrollIntoView({ behavior: "smooth" })
       setScroll(false)
     }
   }, [scrollElement, setScroll, shouldScroll])
