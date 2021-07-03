@@ -2,7 +2,7 @@ import { parse } from "query-string"
 
 const parseCS = (location) => {
   const { customSize, width, height } = parse(location.search)
-  const isValid = JSON.parse(customSize)
+  const isValid = customSize ? JSON.parse(customSize) : false
   if (!isValid) {
     return null
   }
