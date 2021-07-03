@@ -27,7 +27,6 @@ export const LANDING = {
   path: PATH_LANDING,
   isProtected: false,
 }
-
 const routes = [CHAT_HORIZONTAL, CHAT_VERTICAL, CHAT_MANAGER, LANDING]
 
 export default routes

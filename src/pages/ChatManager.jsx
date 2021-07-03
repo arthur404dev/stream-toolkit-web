@@ -24,6 +24,7 @@ const Messages = () => {
       setScroll(false)
     }
   }, [scrollElement, setScroll, shouldScroll])
+
   return (
     <div className='m-auto w-chat-manager h-full block'>
       <main className='bg-transparent w-full h-full flex-col'>
