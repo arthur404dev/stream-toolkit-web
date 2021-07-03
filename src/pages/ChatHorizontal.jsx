@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react'
-import Prompt from '../components/Prompt'
-import { useMessages } from '../hooks'
-import parseCustomSize from '../helpers/parseCustomSize'
+import React, { useEffect } from "react"
+import Prompt from "../components/Prompt"
+import parseCS from "../helpers/parseCustomSize"
+import { useMessages } from "../hooks"
 
 const ChatHorizontal = ({ location }) => {
-  const customSizes = parseCustomSize(location)
+  const customSizes = parseCS(location)
   const [messages, scroll] = useMessages()
   const { shouldScroll, scrollElement, setScroll } = scroll
   useEffect(() => {
     if (shouldScroll) {
-      scrollElement.current.scrollIntoView({ behavior: 'smooth' })
+      scrollElement.current.scrollIntoView({ behavior: "smooth" })
       setScroll(false)
     }
   }, [scrollElement, setScroll, shouldScroll])
   return (
     <div
-      className={!customSizes && 'w-chat-horizontal h-chat-horizontal'}
+      className={!customSizes && "w-chat-horizontal h-chat-horizontal"}
       style={
         customSizes && {
           width: customSizes.width,

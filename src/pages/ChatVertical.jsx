@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react'
-import Message from '../components/Message'
-import { useMessages } from '../hooks'
-import parseCustomSize from '../helpers/parseCustomSize'
+import React, { useEffect } from "react"
+import Message from "../components/Message"
+import { useMessages } from "../hooks"
+import parseCS from "../helpers/parseCustomSize"
 
 const Messages = ({ location }) => {
-  const customSizes = parseCustomSize(location)
+  const customSizes = parseCS(location)
   const [messages, scroll] = useMessages()
   const { shouldScroll, scrollElement, setScroll } = scroll
   useEffect(() => {
     if (shouldScroll) {
-      scrollElement.current.scrollIntoView({ behavior: 'smooth' })
+      scrollElement.current.scrollIntoView({ behavior: "smooth" })
       setScroll(false)
     }
   }, [scrollElement, setScroll, shouldScroll])
   return (
     <div
       className={
-        customSizes ? 'block' : 'w-chat-vertical h-chat-vertical block'
+        customSizes ? "block" : "w-chat-vertical h-chat-vertical block"
       }
       style={
         customSizes && {

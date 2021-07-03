@@ -1,21 +1,22 @@
-import { parse } from 'query-string'
+import { parse } from "query-string"
 
 const parseCS = (location) => {
   const { customSize, width, height } = parse(location.search)
-  if (!customSize) {
+  const isValid = JSON.parse(customSize)
+  if (!isValid) {
     return null
   }
   if (!width || !height) {
     return null
   }
-  const reg = /^\d+$/
-  if (width.match(reg) || height.match(reg)) {
-    return { width: `${width}px`, height: `${height}px` }
+  const rex = /^\d+$/
+  const response = { width, height }
+  if (width.match(rex)) {
+    response.width = `${width}px`
   }
-  return {
-    width,
-    height,
+  if (height.match(rex)) {
+    response.height = `${height}px`
   }
+  return response
 }
-
 export default parseCS

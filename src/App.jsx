@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import AppRoute from './components/AppRoute'
-import routes from './config/routes'
+import { BrowserRouter as Router, Switch } from "react-router-dom"
+import AppRoute from "./components/AppRoute"
+import routes from "./config/routes"
 
 function App() {
   return (
