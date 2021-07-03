@@ -1,8 +1,7 @@
-import { format } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
-import Icons from './Icons'
-import './Message.css'
-import { motion } from 'framer-motion'
+import { format } from "date-fns"
+import { ptBR } from "date-fns/locale"
+import Icons from "./Icons"
+import { motion } from "framer-motion"
 
 const Message = ({ payload, interactive, onClick }) => {
   const { id, author, text, platform, timestamp, clicked } = payload
@@ -33,12 +32,19 @@ const Message = ({ payload, interactive, onClick }) => {
             </h4>
             <div className='flex flex-col justify-end items-end'>
               <span className='text-gray-300 mb-2 text-xl'>
-                {format(parsedDate, 'pp', { locale: ptBR })}
+                {format(parsedDate, "pp", { locale: ptBR })}
               </span>
               <Icons platform={platform} iconSize='text-3xl' />
             </div>
           </div>
-          <span className='text-gray-200 text-4xl mt-3 text-justify w-full messageText'>
+          <span
+            className='text-gray-200 text-4xl mt-3 text-justify w-full'
+            style={{
+              overflow: "hidden",
+              wordWrap: "break-word",
+              wordBreak: "break-word",
+            }}
+          >
             {text}
           </span>
         </div>

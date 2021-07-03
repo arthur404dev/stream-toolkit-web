@@ -1,8 +1,10 @@
 import React, { useEffect } from "react"
 import Message from "../components/Message"
 import { useMessages } from "../hooks"
+import parseCS from "../helpers/parseCustomSize"
 
-const Messages = () => {
+const Messages = ({ location }) => {
+  const customSizes = parseCS(location)
   const [messages, scroll] = useMessages()
   const { shouldScroll, scrollElement, setScroll } = scroll
   useEffect(() => {
@@ -12,7 +14,17 @@ const Messages = () => {
     }
   }, [scrollElement, setScroll, shouldScroll])
   return (
-    <div className='w-chat-vertical h-chat-vertical block'>
+    <div
+      className={
+        customSizes ? "block" : "w-chat-vertical h-chat-vertical block"
+      }
+      style={
+        customSizes && {
+          width: customSizes.width,
+          height: customSizes.height,
+        }
+      }
+    >
       <main className='bg-transparent w-full h-full flex-col'>
         {messages.map((message) => (
           <Message key={message.id} payload={message} interactive={false} />

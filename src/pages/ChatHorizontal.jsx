@@ -1,8 +1,10 @@
 import React, { useEffect } from "react"
 import Prompt from "../components/Prompt"
+import parseCS from "../helpers/parseCustomSize"
 import { useMessages } from "../hooks"
 
-const ChatHorizontal = () => {
+const ChatHorizontal = ({ location }) => {
+  const customSizes = parseCS(location)
   const [messages, scroll] = useMessages()
   const { shouldScroll, scrollElement, setScroll } = scroll
   useEffect(() => {
@@ -12,7 +14,15 @@ const ChatHorizontal = () => {
     }
   }, [scrollElement, setScroll, shouldScroll])
   return (
-    <div className='w-chat-horizontal h-chat-horizontal'>
+    <div
+      className={!customSizes && "w-chat-horizontal h-chat-horizontal"}
+      style={
+        customSizes && {
+          width: customSizes.width,
+          height: customSizes.height,
+        }
+      }
+    >
       <main className='bg-transparent w-full h-full flex'>
         {messages.map((message) => (
           <Prompt key={message.id} payload={message} />
