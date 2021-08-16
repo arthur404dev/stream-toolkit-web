@@ -1,5 +1,7 @@
-export { default as Chatbot } from './Chatbot'
-export { default as ChatHorizontal } from './ChatHorizontal'
-export { default as ChatVertical } from './ChatVertical'
-export { default as ChatManager } from './ChatManager'
-export { default as Landing } from './Landing'
+export { default as Chatbot } from "./Chatbot"
+export { default as ChatHorizontal } from "./ChatHorizontal"
+export { default as ChatVertical } from "./ChatVertical"
+export { default as ChatManager } from "./ChatManager"
+export { default as Landing } from "./Landing"
+export { default as Redirect } from "./Redirect"
+export { default as Authenticate } from "./Authenticate"

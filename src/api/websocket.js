@@ -6,7 +6,7 @@ const socketFactory = (type) => {
 
 const sourceUrls = {
   chat: `wss://backend.chat.restream.io/ws/embed?token=`,
-  stream: `wss://backend.streaming.api.restream.io/ws?accessToken=`,
+  stream: `wss://streaming-statuses.restream.io/ws?token=`,
 }
 
 const sourceIds = {
