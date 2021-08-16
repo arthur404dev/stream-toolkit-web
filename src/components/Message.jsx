@@ -10,17 +10,15 @@ const Message = ({ payload, interactive, onClick }) => {
     <motion.div
       layout
       className={`max-w-full ${
-        clicked ? `bg-gray-700` : `bg-grey-404`
-      } border-${platform} border-l-8 transition-all ${
-        interactive && `hover:bg-gray-700`
-      } 
+        clicked ? `bg-gray-700` : `bg-purpledaze`
+      } transition-all ${interactive && `hover:bg-gray-700`} 
       `}
       onClick={interactive ? () => onClick(id) : () => {}}
     >
       <div className='content max-w-full mx-auto my-2 flex p-6'>
         <div className='flex-shrink-0'>
           <img
-            className='h-16 w-16 rounded-full'
+            className={`h-16 w-16 rounded-full border-${platform} border-4`}
             src={author.avatar}
             alt={author.name}
           />

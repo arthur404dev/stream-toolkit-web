@@ -10,10 +10,10 @@ const sourceUrls = {
 }
 
 const sourceIds = {
-  2: 'twitch',
-  25: 'discord',
-  13: 'youtube',
-  26: 'linkedin',
+  2: "twitch",
+  25: "discord",
+  13: "youtube",
+  26: "linkedin",
 }
 
 export { socketFactory, sourceIds }
