@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 const Prompt = ({ payload }) => {
   const { author, text, platform } = payload
