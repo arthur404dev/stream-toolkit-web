@@ -3,13 +3,16 @@ import { parse } from "query-string"
 
 export const exchangeTokens = async (location) => {
   const { code } = parse(location.search)
+  const bodyFormData = new FormData()
+
+  bodyFormData.append("code", code)
 
   const response = await axios({
     method: "POST",
     url: process.env.REACT_APP_BACKEND_URL,
-    data: { code },
+    data: bodyFormData,
     headers: {
-      "content-type": "application/json",
+      "Content-Type": "multipart/form-data",
     },
   })
 

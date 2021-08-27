@@ -1,11 +1,11 @@
 import React, { useEffect } from "react"
 import Message from "../components/Message"
-import { useMessages } from "../hooks"
+import { useSocketState } from "../hooks"
 import parseCS from "../helpers/parseCustomSize"
 
 const Messages = ({ location }) => {
   const customSizes = parseCS(location)
-  const [messages, scroll] = useMessages()
+  const { messages, scroll } = useSocketState()
   const { shouldScroll, scrollElement, setScroll } = scroll
   useEffect(() => {
     if (shouldScroll) {

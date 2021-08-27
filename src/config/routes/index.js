@@ -5,6 +5,7 @@ import {
   Landing,
   Redirect,
   Authenticate,
+  Stats,
 } from "../../pages"
 import {
   PATH_AUTH_REDIRECT,
@@ -13,6 +14,7 @@ import {
   PATH_CHAT_VERTICAL,
   PATH_AUTH_AUTHENTICATE,
   PATH_LANDING,
+  PATH_STATS,
 } from "./paths"
 // Overlay Paths
 export const CHAT_HORIZONTAL = {
@@ -30,6 +32,12 @@ export const CHAT_MANAGER = {
   path: PATH_CHAT_MANAGER,
   isProtected: true,
 }
+export const STATS = {
+  component: Stats,
+  path: PATH_STATS,
+  isProtected: false,
+}
+
 // Auth Paths
 export const AUTH_REDIRECT = {
   component: Redirect,
@@ -53,6 +61,7 @@ const routes = [
   CHAT_MANAGER,
   AUTH_REDIRECT,
   AUTH_AUTHENTICATE,
+  STATS,
   LANDING,
 ]
 

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react"
 import Prompt from "../components/Prompt"
 import parseCS from "../helpers/parseCustomSize"
-import { useMessages } from "../hooks"
+import { useSocketState } from "../hooks"
 
 const ChatHorizontal = ({ location }) => {
   const customSizes = parseCS(location)
-  const [messages, scroll] = useMessages()
+  const { messages, scroll } = useSocketState()
   const { shouldScroll, scrollElement, setScroll } = scroll
   useEffect(() => {
     if (shouldScroll) {

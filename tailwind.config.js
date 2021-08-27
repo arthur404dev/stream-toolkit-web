@@ -2,7 +2,15 @@ module.exports = {
   purge: {
     content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
     options: {
-      safelist: [/discord/, /youtube/, /twitch/, /linkedin/, /grey-404/],
+      safelist: [
+        /discord/,
+        /youtube/,
+        /twitch/,
+        /linkedin/,
+        /grey-404/,
+        /twitter/,
+        /facebook/,
+      ],
     },
   },
   darkMode: false, // or 'media' or 'class'
@@ -11,10 +19,12 @@ module.exports = {
       colors: {
         purpledaze: "#181B28",
         "grey-404": "#252525",
-        youtube: "#FF0000",
-        discord: "#7289DA",
-        twitch: "#6441A4",
-        linkedin: "#0077B5",
+        youtube: "#F4005F",
+        discord: "#FF65F7",
+        twitch: "#9D65FF",
+        linkedin: "#27AFEB",
+        twitter: "#58EBD7",
+        facebook: "#3b5998",
       },
       width: {
         "chat-vertical": "820px",

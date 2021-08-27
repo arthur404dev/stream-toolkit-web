@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import Message from "../components/Message"
-import { useMessages } from "../hooks"
+import { useSocketState } from "../hooks"
 
 const Messages = () => {
-  const [messages, scroll, setMessages] = useMessages
+  const {messages, scroll, setMessages} = useSocketState()
   const { shouldScroll, scrollElement, setScroll } = scroll
 
   const handleCLick = (id) => {
