@@ -12,4 +12,12 @@ const sourceIds = {
   19: "facebook",
 }
 
-export { socketFactory, sourceIds }
+const platformIds = {
+  5: "youtube",
+  1: "twitch",
+  38: "twitter",
+  26: "linkedin",
+  37: "facebook",
+}
+
+export { socketFactory, sourceIds, platformIds }

@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react"
-import { socketFactory, sourceIds } from "../api/websocket"
+import { socketFactory, sourceIds, platformIds } from "../api/websocket"
 
 const useSocketState = () => {
   const initialStats = Object.fromEntries(
-    Object.values(sourceIds).map((source) => [
+    Object.values(platformIds).map((source) => [
       source,
       { online: false, viewers: 0 },
     ]),
@@ -21,6 +21,7 @@ const useSocketState = () => {
   useEffect(() => {
     const socket = socketFactory()
     socket.onmessage = ({ data }) => {
+      console.log(JSON.parse(data))
       const { type, payload, timestamp, stats } = JSON.parse(data)
 
       if (type === "chat") {
@@ -43,7 +44,7 @@ const useSocketState = () => {
         const { platformId, online, title, viewers } = stats
         if (viewers !== null) {
           const status = {
-            platform: sourceIds[platformId],
+            platform: platformIds[platformId],
             viewers,
             online,
             title,

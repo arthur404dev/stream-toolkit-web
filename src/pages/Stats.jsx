@@ -7,9 +7,6 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons"
 const Stats = ({ match }) => {
   const platform = match.params.platform
   const { stats } = useSocketState()
-  useEffect(() => {
-    console.log(stats)
-  })
   if (platform in stats) {
     return (
       <div className={`w-screen h-screen `}>
