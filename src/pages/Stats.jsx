@@ -17,7 +17,7 @@ const Stats = ({ match }) => {
   }
   if (type === "horizontal") {
     return (
-      <div className='w-screen h-screen flex flex-row'>
+      <div className='w-screen h-screen flex flex-row items-center'>
         {platforms.map((platform) => (
           <Stat platform={platform} />
         ))}
