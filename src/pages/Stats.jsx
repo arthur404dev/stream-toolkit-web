@@ -1,65 +1,21 @@
-import React, { useEffect } from "react"
-import { useSocketState } from "../hooks"
-import Icons from "../components/Icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUserCircle } from "@fortawesome/free-solid-svg-icons"
+import React from "react"
+import Stat from "../components/Stat"
+import { platformIds } from "../api/websocket"
 
 const Stats = ({ match }) => {
-  const platform = match.params.platform
-  const { stats } = useSocketState()
-  if (platform in stats) {
+  const type = match.params.type
+  const platforms = [...Object.values(platformIds), "total"]
+
+  if (type === "vertical") {
     return (
-      <div className={`w-screen h-screen `}>
-        <div className={`w-48 h-16 flex`}>
-          <div className={`w-16 h-16  flex items-center justify-center`}>
-            <Icons platform={platform} iconSize={"text-4xl"} />
-          </div>
-          <div className={`w-2/3 flex items-center p-3`}>
-            <FontAwesomeIcon
-              icon={faUserCircle}
-              className={`text-2xl ${
-                stats[platform].online
-                  ? `text-green-400 animate-pulse`
-                  : `text-gray-500`
-              }`}
-            />
-            {stats[platform].viewers ? (
-              <span className={`text-white ml-4`}>
-                {stats[platform].viewers}
-              </span>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
+      <div className='w-screen h-screen flex flex-col'>
+        {platforms.map((platform) => (
+          <Stat platform={platform} />
+        ))}
       </div>
     )
   }
-  if (platform === "total") {
-    return (
-      <div className={`w-screen h-screen`}>
-        <div
-          className={`w-48 h-32 flex flex-col items-center justify-center text-white`}
-        >
-          <div
-            className={`h-full w-full flex items-center justify-center text-4xl`}
-          >
-            <FontAwesomeIcon
-              icon={faUserCircle}
-              className={`mr-3 text-twitch`}
-            />
-            <p>
-              {Object.values(stats).reduce(
-                (prev, stat) => prev + stat.viewers,
-                0,
-              )}
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-  return <div>{platform} not currently supported</div>
+  return <div>{type}</div>
 }
 
 export default Stats
