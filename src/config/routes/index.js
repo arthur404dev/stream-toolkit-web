@@ -2,6 +2,7 @@ import {
   ChatHorizontal,
   ChatManager,
   ChatVertical,
+  ChatPinned,
   Landing,
   Redirect,
   Authenticate,
@@ -15,6 +16,7 @@ import {
   PATH_AUTH_AUTHENTICATE,
   PATH_LANDING,
   PATH_STATS,
+  PATH_CHAT_PINNED,
 } from "./paths"
 // Overlay Paths
 export const CHAT_HORIZONTAL = {
@@ -30,7 +32,12 @@ export const CHAT_VERTICAL = {
 export const CHAT_MANAGER = {
   component: ChatManager,
   path: PATH_CHAT_MANAGER,
-  isProtected: true,
+  isProtected: false,
+}
+export const CHAT_PINNED = {
+  component: ChatPinned,
+  path: PATH_CHAT_PINNED,
+  isProtected: false,
 }
 export const STATS = {
   component: Stats,
@@ -59,6 +66,7 @@ const routes = [
   CHAT_HORIZONTAL,
   CHAT_VERTICAL,
   CHAT_MANAGER,
+  CHAT_PINNED,
   AUTH_REDIRECT,
   AUTH_AUTHENTICATE,
   STATS,

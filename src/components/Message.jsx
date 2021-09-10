@@ -1,16 +1,15 @@
-import { format } from "date-fns"
-import { ptBR } from "date-fns/locale"
 import Icons from "./Icons"
-import { motion } from "framer-motion"
+import { parseDate } from "../helpers"
 
 const Message = ({ payload, interactive, onClick }) => {
   const { id, author, text, platform, timestamp, clicked } = payload
-  const parsedDate = new Date(timestamp * 1000)
   return (
-    <motion.div
+    <div
       layout
       className={`max-w-full ${
-        clicked ? `bg-gray-700` : `bg-purpledaze`
+        clicked
+          ? `bg-grey border-4 border-${platform} border-solid`
+          : `bg-purpledaze`
       } transition-all ${interactive && `hover:bg-gray-700`} 
       `}
       onClick={interactive ? () => onClick(id) : () => {}}
@@ -30,7 +29,7 @@ const Message = ({ payload, interactive, onClick }) => {
             </h4>
             <div className='flex flex-col justify-end items-end'>
               <span className='text-gray-300 mb-2 text-xl'>
-                {format(parsedDate, "pp", { locale: ptBR })}
+                {parseDate(timestamp)}
               </span>
               <Icons platform={platform} iconSize='text-3xl' />
             </div>
@@ -48,7 +47,7 @@ const Message = ({ payload, interactive, onClick }) => {
         </div>
       </div>
       {/* INCLUDE FOOTER */}
-    </motion.div>
+    </div>
   )
 }
 

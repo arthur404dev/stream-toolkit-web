@@ -13,4 +13,5 @@ export const PATH_AUTH_REDIRECT = `${basePaths.auth}/redirect`
 export const PATH_CHAT_VERTICAL = `${basePaths.overlays}/chat/vertical`
 export const PATH_CHAT_HORIZONTAL = `${basePaths.overlays}/chat/horizontal`
 export const PATH_CHAT_MANAGER = `${basePaths.overlays}/chat/manager`
+export const PATH_CHAT_PINNED = `${basePaths.overlays}/chat/pinned`
 export const PATH_STATS = `${basePaths.overlays}/stats/:type`

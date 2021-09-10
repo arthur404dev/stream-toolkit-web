@@ -1,7 +1,9 @@
 import React from "react"
+import { limitText } from "../helpers"
 
 const Prompt = ({ payload }) => {
   const { author, text, platform } = payload
+  const LIMIT = 100
   return (
     <div className='flex text-2xl h-full pr-4'>
       <div
@@ -12,7 +14,7 @@ const Prompt = ({ payload }) => {
 
       <div className='whitespace-nowrap flex'>
         <span className={`font-bold text-${platform}`}>{author.name}:</span>
-        <p className='text-white pl-2'>{text}</p>
+        <p className='text-white pl-2'>{limitText(text, LIMIT)}</p>
       </div>
     </div>
   )

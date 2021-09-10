@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       colors: {
         purpledaze: "#181B28",
+        "purpledaze-darker": "#161926",
         "grey-404": "#252525",
         youtube: "#F4005F",
         discord: "#FF65F7",
@@ -30,10 +31,12 @@ module.exports = {
         "chat-vertical": "820px",
         "chat-horizontal": "2560px",
         "chat-manager": "99%",
+        highlight: "800px",
       },
       height: {
         "chat-vertical": "960px",
         "chat-horizontal": "80px",
+        highlight: "250px",
       },
     },
   },
