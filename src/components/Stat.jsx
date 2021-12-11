@@ -1,12 +1,16 @@
-import React from "react"
-import { useSocketState } from "../hooks"
+import React, { useEffect, useState } from "react"
 import Icons from "../components/Icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons"
 import { ReactComponent as Logo404 } from "../assets/img/Logo Base.svg"
 
-const Stat = ({ platform }) => {
-  const { stats } = useSocketState()
+const Stat = ({ platform, stats }) => {
+  const [platformState, setPlatformState] = useState({})
+  useEffect(() => {
+    if (platform in stats) {
+      setPlatformState(stats[platform])
+    }
+  }, [stats])
   if (platform in stats) {
     return (
       <div className={`w-full text-2xl`}>
@@ -18,15 +22,13 @@ const Stat = ({ platform }) => {
             <FontAwesomeIcon
               icon={faUserCircle}
               className={`text-2xl ${
-                stats[platform].online
+                platformState.online
                   ? `text-green-400 animate-pulse`
                   : `text-gray-500`
               }`}
             />
-            {stats[platform].viewers ? (
-              <span className={`text-white ml-4`}>
-                {stats[platform].viewers}
-              </span>
+            {platformState.viewers ? (
+              <span className={`text-white ml-4`}>{platformState.viewers}</span>
             ) : (
               ""
             )}
@@ -52,10 +54,12 @@ const Stat = ({ platform }) => {
               className={`text-2xl text-twitch`}
             />
             <span className={`text-white ml-4`}>
-              {Object.values(stats).reduce(
-                (prev, stat) => prev + stat.viewers,
-                0,
-              )}
+              {Object.values(stats).reduce((prev, stat) => {
+                if (typeof stat.viewers === "number") {
+                  return prev + stat.viewers
+                }
+                return prev
+              }, 0)}
             </span>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import React from "react"
 import Stat from "../components/Stat"
+import { useSocketState } from "../hooks"
 import { platformIds } from "../api/websocket"
 
 const Stats = ({ match }) => {
+  const { stats } = useSocketState()
   const type = match.params.type
   const platforms = [...Object.values(platformIds), "total"]
 
@@ -10,7 +12,7 @@ const Stats = ({ match }) => {
     return (
       <div className='w-screen h-screen flex flex-col'>
         {platforms.map((platform) => (
-          <Stat platform={platform} />
+          <Stat platform={platform} stats={stats} />
         ))}
       </div>
     )
@@ -19,7 +21,7 @@ const Stats = ({ match }) => {
     return (
       <div className='w-screen h-screen flex flex-row items-center'>
         {platforms.map((platform) => (
-          <Stat platform={platform} />
+          <Stat platform={platform} stats={stats} />
         ))}
       </div>
     )

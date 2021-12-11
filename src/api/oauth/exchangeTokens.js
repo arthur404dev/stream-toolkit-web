@@ -15,6 +15,4 @@ export const exchangeTokens = async (location) => {
       "Content-Type": "multipart/form-data",
     },
   })
-
-  console.log(response)
 }

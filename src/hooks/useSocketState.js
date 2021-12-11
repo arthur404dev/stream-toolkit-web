@@ -24,7 +24,6 @@ const useSocketState = () => {
 
   useEffect(() => {
     client.onmessage = ({ data }) => {
-      console.log(JSON.parse(data))
       const rawData = JSON.parse(data)
       const { type, payload, timestamp, stats } = rawData
 

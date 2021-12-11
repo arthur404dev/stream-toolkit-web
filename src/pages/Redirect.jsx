@@ -5,7 +5,6 @@ import { exchangeTokens } from "../api/oauth/exchangeTokens"
 const Redirect = ({ location }) => {
   useEffect(() => {
     const tokens = exchangeTokens(location)
-    console.log(tokens)
   }, [location])
 
   return <div>From Redirect!</div>
